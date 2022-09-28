@@ -1,0 +1,238 @@
+%2022-0105-笔记模板
+\documentclass[openany,oneside,a4paper,12pt,notitlepage,onecolumn]{book}
+%————————宏包调用————————%
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsmath}%————————调用用于数学环境
+\usepackage{amsthm}%————————调用用于proof环境
+\usepackage{graphicx}
+\usepackage{mathrsfs}
+\usepackage{setspace}%————————用于控制行间距
+\usepackage{fontspec}%————————英文字体设置
+\usepackage[CJKchecksingle]{xeCJK}%————————中文字体设置
+\usepackage{fancyhdr}%————————页眉页脚以及脚注
+\usepackage[showframe=flase,a4paper,headsep={1cm},marginparsep={0cm},rmargin={0.5cm},lmargin={2.5cm},tmargin={2.3cm},bmargin={2cm},reversemp=true]{geometry}%————————页面大小页边距
+\usepackage{graphicx}%————————插入图片
+\usepackage{float}%————————保证图片在当前位置，不容改变
+\usepackage{cite}%——————————引用@的包
+\usepackage[colorlinks, linkcolor=black, anchorcolor=black, citecolor=black]{hyperref}
+%————用于页边栏————%
+\usepackage{boites,boites_exemples}
+\usepackage{graphicx,pstricks}
+\usepackage{multicol}
+\usepackage{lipsum}
+%————调用用于方框展示————%
+\usepackage{tcolorbox}
+\tcbuselibrary{skins, breakable, theorems}
+\usepackage{colortbl}
+%————用于封面的制作————%
+\usepackage{ctex}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage{ctex}% 中文支持
+\usepackage{cite}
+\usepackage{hyperref}
+\usepackage{lmodern}
+%————设置背景网格————%
+\usepackage{background}
+%————调节字体大小————%
+\usepackage[fontsize=14]{scrextend}
+%————————参数选取————————%
+%————距离控制————%
+%\setlength{\parindent}{0em}%——%用于首行缩进的距离
+%\addtolength{\parskip}{0pt}%——%用于控制段落之间距离
+\linespread{1.5}%————————————%全文行间距，包括目录，脚注，图表标题等
+\setstretch{1.27}%————————————%正文行间距
+%————设置字体————%
+%——英文——%
+\setmainfont{Segoe Print}
+%\setmainfont[Mapping=tex-text]{Times New Roman}%——————%设置衬线字体
+\setsansfont[Mapping=tex-text]{Times New Roman}%———————————————%设置无衬线字体
+\setmonofont{Times New Roman}%————————————————————————————%设置等宽字体
+%——中文——%
+\setCJKmainfont[BoldFont={Adobe Heiti Std},ItalicFont={Adobe Kaiti Std}]{Adobe Kaiti Std}%——————————%设置中文正文字体,前者设置了粗体对应字体，后者设置了斜体对应字体
+\setCJKsansfont{Adobe Heiti Std}%————————%设置了无衬线字体样式
+%————页眉页脚————%
+\pagestyle{fancy}%————参数empty不设置页眉页脚，fancy设置页眉页脚
+\renewcommand{\headrulewidth}{0pt}%————页眉线宽设置为零可以去除页眉线
+%\lhead{}%————页眉左
+\chead{}%————页眉中
+%\rhead{}%————页眉右
+\lfoot{}%————页脚左
+\cfoot{\thepage}%————页脚中
+\rfoot{}%————页脚右
+%————设置为中文————%
+\renewcommand{\contentsname}{目录}%————改变目录名字为中文
+\renewcommand{\figurename}{图}%————改变图片标签figure变为中文
+%————数学有关————%
+\newtheorem*{definition}{定义}
+\newtheorem*{theorem}{定理}
+\newtheorem*{lemma}{引理}
+\newtheorem*{corollary}{推论}
+\newtheorem*{property}{性质}
+%上述代码定制了四个环境：定义，定理，引理和推论。其语法如下
+%语法：{环境名}[编号延续]{显示名}[编号层次]
+\newcommand\tbbint{{-\mkern -16mu\int}}%————定义积分平均符号
+%————方框参数————%
+\newtcolorbox{mybox}[2][]{breakable, title=#2,#1}
+%————文档参数————%
+%\setlength{\parskip}{0.5em}
+\title{CFA笔记}%————标题
+\author{兰宇恒}%————作者
+%————封面制作————%
+\usetikzlibrary{intersections,decorations.text,shadings,3d,positioning,patterns}
+\definecolor{c1}{RGB}{62,97,127}
+\definecolor{c2}{RGB}{104,182,182}
+\definecolor{c3}{RGB}{107,190,190}
+\definecolor{c4}{RGB}{100,172,174}
+\definecolor{c5}{RGB}{95,162,162}
+\definecolor{c6}{RGB}{235,242,252}
+\newcommand{\zhongsong}{\CJKfontspec{STZhongsong}}%华文中宋
+\newcommand{\xinwei}{\CJKfontspec{STXinwei}}%华文新魏
+%————设置背景网格————%
+\backgroundsetup{scale = 1.5, angle = 0, color = gray, 
+	contents = \tikz{\draw[step = 5mm]
+		(-.5\paperwidth, -.5\paperheight) 
+		grid (.5\paperwidth, .5\paperheight);\draw[red,very thick] (-5.5,10) -- (-5.5,-10);\draw[red,very thick] (-7,9) -- (7,9);}}
+%————section不标号————%
+\makeatletter
+\newcommand\specialsectioning{\setcounter{secnumdepth}{-2}}
+\makeatother
+%————自定义环境————%
+\newenvironment{knowledge}[1]
+{\begin{center}
+		\fcolorbox{pink}{pink}{\LARGE #1}\\[1ex]
+		\begin{tabular}{|p{0.95\textwidth}|}
+			\hline
+		}
+		{ 
+			\\\\\hline
+		\end{tabular} 
+	\end{center}
+}
+\newenvironment{boxs}[1]
+{\begin{flushleft}
+			\fcolorbox{c2}{c2}{ {\Large #1}}\\[1ex]
+	\begin{tabular}{|p{0.90\textwidth}|}
+		\hline\\
+	}
+	{ 
+		\\\\\hline
+	\end{tabular} 
+	\end{flushleft}
+}
+%——————————————%
+
+
+%————————文章部分————————%
+\begin{document}
+%————封面部分————%
+\NoBgThispage\thispagestyle{empty}
+\begin{tikzpicture}[remember picture,overlay,font=\sffamily\bfseries]
+	\fill[opacity=0.2,c6!50](current page.south east)rectangle (current page.north west);%遮住页码
+	\draw[help lines,step=0.8cm,opacity=0.4,color=c1](current page.south east)grid(current page.north west);
+%——插入图片——%
+	\begin{scope}
+		\path[clip,postaction={fill=c3}]
+		([xshift=2cm,yshift=-8cm]current page.center) rectangle ++ (4.2,7.7);
+		\node(a) at ([xshift=2cm,yshift=-4.6cm]current page.center){\includegraphics[width=450pt]{logo.png}};
+	\end{scope}
+%————标题信息————%
+	\fill[c1] ([xshift=2cm,yshift=-8cm]current page.center) rectangle ++ (-13.7,7.7);
+	\node[text=white,anchor=west,scale=5,inner sep=0pt] at
+	([xshift=-9.5cm,yshift=-3cm]current page.center) {{\tiny CFA备考\ （第一版）}};
+	\node[text=white,anchor=west,scale=2.5,inner sep=0pt,font=\kaishu] at
+	([xshift=-8cm,yshift=-6cm]current page.center) {兰宇恒 \;~ 著};
+%————其他符号————%
+\node[text=c1,anchor=west,scale=1,inner sep=0pt] at
+([xshift=-8cm,yshift=-10cm]current page.center) {$\begin{aligned}ROE&=(\frac{net income}{EBT})(\frac{EBT}{EBIT})(\frac{EBIT}{revenue})(\frac{revenue}{asstes})(\frac{assets}{equity})\\&=(tax\ burden)(interest\ burden)(EBIT\ margin)(asset\ turnover)(leverage\ ratio)\end{aligned}$};
+\node[text=c1,anchor=west,scale=1,inner sep=0pt] at
+([xshift=-8cm,yshift=5cm]current page.center) {};
+\end{tikzpicture}
+%————目录部分————%
+%\thispagestyle{empty}%————单独设置某页页眉页脚为空
+\setcounter{tocdepth}{2}%—————%设置目录深度
+	\tableofcontents
+%注：此处摘要,标题和目录可根据需要呼唤顺序%
+%————正文部分————%
+\specialsectioning
+\chapter{财务分析}
+\section{Reading21-Inventories（3星）}
+	本节主要介绍了以下内容
+	\begin{enumerate}
+		\item 首先包括存货的概念，存货的计算base法则与存货的两种记账方式
+		\item 存货的四种评估方法
+		\item 存货的两种核算体系periodic与perpetual以及和FIFO与LIFO结合得到的四种情况的计算
+		\item 从LIFO转换到FIFO的五个科目的变换
+		\item LIFO liquidation的概念
+		\item 存货的损失在两种体系下的计算不同
+	\end{enumerate}
+	\newpage
+	\subsection{21.1 Distinguish between product costs and period costs}
+	\begin{knowledge}{COGS}
+		\begin{boxs}{定义}
+			cost of goods sold
+		\end{boxs}
+	\begin{boxs}{性质}
+		\subsubsection{存货的base法则}
+		\begin{itemize}
+			\item Ending inventory = beginning inventory + purchase - COGS
+		\end{itemize}
+		\subsubsection{两种记账方式}
+		\begin{itemize}
+			\item capital(资本化)
+			指商品达到可销售化之前的花费，一般有料工费（购买原材料，工人费用，生产化费用）
+			\item expensed(费用化)
+			指商品达到可销售化之后的话费，一般有仓储费，管理费，销售费
+			\begin{itemize}
+				\item 特别注意abnormal waste of materials， labor， or overhead是记载在费用化内的
+			\end{itemize}
+		\end{itemize}
+	\end{boxs}
+	\end{knowledge}
+\newpage
+\lipsum[1-4]
+\end{document}
+%————————特殊代码的使用方法————————%
+%%————列表结构————%
+%\begin{itemize}
+%  \item a
+%  \item b
+%\end{itemize}
+%%————证明结构————%
+%\begin{proof}
+%  good
+%\end{proof}
+%注：此处列表有无序（itemize），有序（enumerate），描述（description）三种调用参数
+%%————图片结构————%
+%\begin{figure}[hbtp]
+%\center
+%\includegraphics[width=0.85\textwidth]{随机过程四五章.png}
+%\caption{随机过程第5-8章知识脉络图}
+%\end{figure}
+%注插入图片代码，hbtp是here，top，bottom，float page的缩写，四个都写表示放在哪里有无所谓。H参数表示把照片放在固定位置不容改变。
+%%————方框结构————%
+%\begin{tcolorbox}[title = {I Love math}]
+%This is a \textbf{tcolorbox} with title.
+%\tcblower
+%Here, you see the lower part of the box.
+%\end{tcolorbox}
+%\begin{tcolorbox}[title = {证明思路}]
+%\end{tcolorbox}
+%注可以用方框表示一些定理证明思路和补充证明
+%%————高亮文本————%
+%   %% 文本的颜色
+%   \textcolor{red}{红色}     %1.方法一
+%   \color{blue} 蓝色       %2.方法二
+%   \textcolor[rgb]{0.9,0.3,0.5}{花括号中的三个数字从0-1这个区间来选择即可}
+%   \color[rgb]{0.2,0.1,0.8}蓝色
+%
+%   %% 文本的高亮
+%\colorbox{gray}{}
+%    \colorbox[rgb]{0.1,0.9,0.5}{\color[rgb]{0.9,0.3,0.5}绿底黑字}%底色+字体颜色
+%    \fcolorbox[rgb]{0.1,0.3,0.5}[rgb]{0.2,0.9,0.1}{红框黄底} %框色+底色
+%   \colorbox{green}{\color{black}绿底黑字}%底色+字体颜色
+%   \fcolorbox{red}{yellow}{红框黄底} %框色+底色
+%注可以用颜色框来表示不理解的地方

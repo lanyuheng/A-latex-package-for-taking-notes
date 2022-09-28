@@ -1,0 +1,33 @@
+%————页面颜色————%
+\pagecolor{myyellow}
+%————封面部分————%
+\NoBgThispage\thispagestyle{empty}
+\begin{tikzpicture}[remember picture,overlay,font=\sffamily\bfseries]
+	\fill[opacity=0.2,c6!50](current page.south east)rectangle (current page.north west);%遮住页码
+	\draw[help lines,step=0.8cm,opacity=0.4,color=c1](current page.south east)grid(current page.north west);
+	%——插入图片——%
+	\begin{scope}
+		\path[clip,postaction={fill=c3}]
+		([xshift=2cm,yshift=-8cm]current page.center) rectangle ++ (4.2,7.7);
+		\node(a) at ([xshift=2cm,yshift=-4.6cm]current page.center){\includegraphics[width=450pt]{logo.png}};
+	\end{scope}
+	%————标题信息————%
+	\fill[c1] ([xshift=2cm,yshift=-8cm]current page.center) rectangle ++ (-13.7,7.7);
+	\node[text=white,anchor=west,scale=5,inner sep=0pt] at
+	([xshift=-9.5cm,yshift=-3cm]current page.center) {{\tiny CFA备考\ （第一版）}};
+	\node[text=white,anchor=west,scale=2.5,inner sep=0pt,font=\kaishu] at
+	([xshift=-8cm,yshift=-6cm]current page.center) {兰宇恒 \;~ 著};
+	%————其他符号————%
+	\node[text=c1,anchor=west,scale=1,inner sep=0pt] at
+	([xshift=-8cm,yshift=-10cm]current page.center) {$\begin{aligned}ROE&=(\frac{net income}{EBT})(\frac{EBT}{EBIT})(\frac{EBIT}{revenue})(\frac{revenue}{asstes})(\frac{assets}{equity})\\&=(tax\ burden)(interest\ burden)(EBIT\ margin)(asset\ turnover)(leverage\ ratio)\end{aligned}$};
+	\node[text=c1,anchor=west,scale=1,inner sep=0pt] at
+	([xshift=-5cm,yshift=6cm]current page.center) {$COGS_{FIFO} = COGS_{LIFO} - \Delta L.R$};
+	\node[text=c1,anchor=west,scale=1,inner sep=0pt] at
+	([xshift=0cm,yshift=10cm]current page.center){
+		$\begin{aligned} \beta_{asset}&=\beta_{equity}\frac{1}{[1+(1-t)\frac{D}{E}]}\\ \beta_{asset}^{*}&=\beta_{equity}^{*}[1+(1-t^{\prime})\frac{D^{\prime}}{E^{\prime}}]\end{aligned}$};
+\end{tikzpicture}
+%————目录部分————%
+%\thispagestyle{empty}%————单独设置某页页眉页脚为空
+\setcounter{tocdepth}{2}%—————%设置目录深度
+\tableofcontents
+%注：此处摘要,标题和目录可根据需要呼唤顺序%

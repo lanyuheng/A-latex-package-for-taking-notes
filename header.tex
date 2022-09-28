@@ -1,0 +1,131 @@
+%2022-0105-笔记模板
+\documentclass[openany,oneside,a4paper,12pt,notitlepage,onecolumn]{book}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsmath}%————————调用用于数学环境
+\usepackage{amsthm}%————————调用用于proof环境
+\usepackage{graphicx}
+\usepackage{mathrsfs}
+\usepackage{setspace}%————————用于控制行间距
+\usepackage{fontspec}%————————英文字体设置
+\usepackage[CJKchecksingle]{xeCJK}%————————中文字体设置
+\usepackage{fancyhdr}%————————页眉页脚以及脚注
+\usepackage[showframe=flase,a4paper,headsep={1cm},marginparsep={0cm},rmargin={0.5cm},lmargin={2.5cm},tmargin={2.3cm},bmargin={2cm},reversemp=true]{geometry}%————————页面大小页边距
+\usepackage{graphicx}%————————插入图片
+\usepackage{float}%————————保证图片在当前位置，不容改变
+\usepackage{cite}%——————————引用@的包
+\usepackage[colorlinks, linkcolor=black, anchorcolor=black, citecolor=black]{hyperref}
+\usepackage{longtable}%——————————可跨页长表格
+%————用于页边栏————%
+\usepackage{boites,boites_exemples}
+\usepackage{graphicx,pstricks}
+\usepackage{multicol}
+\usepackage{lipsum}
+%————调用用于方框展示————%
+\usepackage{tcolorbox}
+\tcbuselibrary{skins, breakable, theorems}
+\usepackage{colortbl}
+%————用于封面的制作————%
+\usepackage{ctex}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage{ctex}% 中文支持
+\usepackage{cite}
+\usepackage{hyperref}
+\usepackage{lmodern}
+%————设置背景网格————%
+\usepackage{background}
+%————调节字体大小————%
+%\usepackage[fontsize=14]{scrextend}
+%————插入PDF————%
+\usepackage{pdfpages}
+%————页面颜色————%
+\usepackage{pagecolor}
+%————————参数选取————————%
+%————距离控制————%
+%\setlength{\parindent}{0em}%——%用于首行缩进的距离
+%\addtolength{\parskip}{0pt}%——%用于控制段落之间距离
+\linespread{1.5}%————————————%全文行间距，包括目录，脚注，图表标题等
+\setstretch{1}%————————————%正文行间距
+%————设置字体————%
+%——英文——%
+\setmainfont{Segoe Print}
+%\setmainfont[Mapping=tex-text]{Times New Roman}%——————%设置衬线字体
+\setsansfont[Mapping=tex-text]{Times New Roman}%———————————————%设置无衬线字体
+\setmonofont{Times New Roman}%————————————————————————————%设置等宽字体
+%——中文——%
+\setCJKmainfont[BoldFont={Adobe Heiti Std},ItalicFont={Adobe Kaiti Std}]{Adobe Kaiti Std}%——————————%设置中文正文字体,前者设置了粗体对应字体，后者设置了斜体对应字体
+\setCJKsansfont{Adobe Heiti Std}%————————%设置了无衬线字体样式
+%————页眉页脚————%
+\pagestyle{fancy}%————参数empty不设置页眉页脚，fancy设置页眉页脚
+\renewcommand{\headrulewidth}{0pt}%————页眉线宽设置为零可以去除页眉线
+%\lhead{}%————页眉左
+\chead{}%————页眉中
+%\rhead{}%————页眉右
+\lfoot{}%————页脚左
+\cfoot{\thepage}%————页脚中
+\rfoot{}%————页脚右
+%————设置为中文————%
+\renewcommand{\contentsname}{目录}%————改变目录名字为中文
+\renewcommand{\figurename}{图}%————改变图片标签figure变为中文
+%————数学有关————%
+\newtheorem*{definition}{定义}
+\newtheorem*{theorem}{定理}
+\newtheorem*{lemma}{引理}
+\newtheorem*{corollary}{推论}
+\newtheorem*{property}{性质}
+%上述代码定制了四个环境：定义，定理，引理和推论。其语法如下
+%语法：{环境名}[编号延续]{显示名}[编号层次]
+\newcommand\tbbint{{-\mkern -16mu\int}}%————定义积分平均符号
+%————方框参数————%
+\newtcolorbox{knowledge}[1]{hbox boxed title,
+	enhanced jigsaw,opacityback=0,opacityframe=0,attach boxed title to top center=
+	{yshift=-3mm,yshifttext=-1mm},colframe=c7,borderline north={1mm}{0mm}{c7},breakable,borderline south={1mm}{0mm}{c7},
+	boxed title style={size=small,colback=c7},
+	title={\fcolorbox{c7}{c7}{\color{black}#1}}}
+\newtcolorbox{boxs}[1]{hbox boxed title,
+	enhanced jigsaw,opacityback=0,opacityframe=0,attach boxed title to top left={yshift*=-\tcboxedtitleheight},colframe=c2,borderline west={1mm}{0mm}{c2},breakable,borderline south={1mm}{0mm}{c2},
+	boxed title style={size=small,colback=c2},
+	title={\fcolorbox{c2}{c2}{\color{black}#1}}}
+\newtcolorbox{mybox}[1]{hbox boxed title,
+	enhanced jigsaw,opacityback=0,opacityframe=0,breakable,attach boxed title to top left={yshift*=-\tcboxedtitleheight},colframe=c1,borderline north={1mm}{0mm}{c1},borderline south={1mm}{0mm}{c1},
+	boxed title style={size=small,colback=c1},
+	title={\fcolorbox{c1}{c1}{\color{white}#1}}}
+%————文档参数————%
+%\setlength{\parskip}{0.5em}
+\title{CFA笔记}%————标题
+\author{兰宇恒}%————作者
+%————封面制作————%
+\usetikzlibrary{intersections,decorations.text,shadings,3d,positioning,patterns}
+\definecolor{c1}{RGB}{62,97,127}
+\definecolor{c2}{RGB}{186,210,186}
+\definecolor{c3}{RGB}{107,190,190}
+\definecolor{c4}{RGB}{100,172,174}
+\definecolor{c5}{RGB}{95,162,162}
+\definecolor{c6}{RGB}{235,242,252}
+\definecolor{c7}{RGB}{194,212,226}
+\definecolor{c8}{RGB}{255,176,128}
+\newcommand{\zhongsong}{\CJKfontspec{STZhongsong}}%华文中宋
+\newcommand{\xinwei}{\CJKfontspec{STXinwei}}%华文新魏
+%————设置背景网格————%
+\backgroundsetup{scale = 1.5, angle = 0, color = gray, 
+	contents = \tikz{\draw[step = 5mm,gray]
+		(-7,10) grid (7,-10);\draw[c8,very thick] (-5.5,10) -- (-5.5,-10);\draw[c8,very thick] (-7,9) -- (7,9);}}
+%————section不标号————%
+\makeatletter
+\newcommand\specialsectioning{\setcounter{secnumdepth}{-2}}
+\makeatother
+%————自适应图片参数调整————%
+\newcommand\measurepage{\dimexpr\pagegoal-\pagetotal-\baselineskip\relax}
+%————输入罗马数字————%
+\makeatletter
+\newcommand{\rmnum}[1]{\romannumeral #1}
+\newcommand{\Rmnum}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\makeatother
+%————背景色————%
+\definecolor{myyellow}{RGB}{245, 245, 220}
+%——————————————%
+
+

@@ -1,0 +1,72 @@
+%————————宏包部分————————%
+\input{header}
+%————————文章部分————————%
+\begin{document}
+\input{document}
+%————正文部分————%
+\specialsectioning
+\chapter{\Rmnum{1} Quantitative Methods}
+\input{Quantitative Methods}
+\chapter{\Rmnum{2} Economics}
+\input{Economics}
+\chapter{\Rmnum{3} Fiancial Reporting Analysis}
+\input{Fiancial Reporting Analysis}
+\chapter{\Rmnum{4} Corporate issuers}
+\input{Corporate issuers}
+\chapter{\Rmnum{5} Equity}
+\input{Equity}
+\chapter{\Rmnum{6} Fixed Income}
+\input{Fixed Income}
+\chapter{\Rmnum{7} Derivatives}
+\input{Derivatives}
+\chapter{\Rmnum{8} Alternative Investments}
+\input{Alternative Investments}
+\chapter{\Rmnum{9} Portfolio Management}
+\input{Portfolio Management}
+\chapter{\Rmnum{10} Ethical and Professional Standards}
+\input{Ethical and Professional Standards}
+\end{document}
+%————————特殊代码的使用方法————————%
+%%————列表结构————%
+%\begin{itemize}
+%  \item a
+%  \item b
+%\end{itemize}
+%%————证明结构————%
+%\begin{proof}
+%  good
+%\end{proof}
+%注：此处列表有无序（itemize），有序（itemize），描述（description）三种调用参数
+%%————图片结构————%
+%\begin{figure}[hbtp]
+%\center
+%\includegraphics[width=0.85\textwidth]{随机过程四五章.png}
+%\caption{随机过程第5-8章知识脉络图}
+%\end{figure}
+%———插入PDF图片结构———%
+%\includegraphics*[page=201,width=450pt]{3.pdf}
+%\includegraphics*[page=248,height=\measurepage-40pt]{3.pdf}
+%注插入图片代码，hbtp是here，top，bottom，float page的缩写，四个都写表示放在哪里有无所谓。H参数表示把照片放在固定位置不容改变。
+%%————方框结构————%
+%\begin{tcolorbox}[title = {I Love math}]
+%This is a \textbf{tcolorbox} with title.
+%\tcblower
+%Here, you see the lower part of the box.
+%\end{tcolorbox}
+%\begin{tcolorbox}[title = {证明思路}]
+%\end{tcolorbox}
+%注可以用方框表示一些定理证明思路和补充证明
+%%————高亮文本————%
+%   %% 文本的颜色
+%   \textcolor{red}{红色}     %1.方法一
+%   \color{blue} 蓝色       %2.方法二
+%   \textcolor[rgb]{0.9,0.3,0.5}{花括号中的三个数字从0-1这个区间来选择即可}
+%   \color[rgb]{0.2,0.1,0.8}蓝色
+%
+%   %% 文本的高亮
+%\colorbox{gray}{}
+%    \colorbox[rgb]{0.1,0.9,0.5}{\color[rgb]{0.9,0.3,0.5}绿底黑字}%底色+字体颜色
+%    \fcolorbox[rgb]{0.1,0.3,0.5}[rgb]{0.2,0.9,0.1}{红框黄底} %框色+底色
+%   \colorbox{green}{\color{black}绿底黑字}%底色+字体颜色
+%   \fcolorbox{red}{yellow}{红框黄底} %框色+底色
+%注可以用颜色框来表示不理解的地方
