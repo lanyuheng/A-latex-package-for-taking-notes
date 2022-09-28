@@ -1,7 +1,7 @@
 | Title  | A latex package for taking notes                             |
 | ------ | ------------------------------------------------------------ |
 | Time   | Dec. 2021- Feb. 2022                                         |
-| Github | https://github.com/lanyuheng/Fundamentals-of-Computer-Science-in-Cpp |
+| Github | https://github.com/lanyuheng/A-latex-package-for-taking-notes/tree/main |
 
 + I wrote a header file for class notes. The style of the note is as follows
 
